@@ -1,7 +1,9 @@
-str = input()
-def main(str):
+input_str = input()
+def main (input_str):
     try:
-        arr = str.split()
+        arr = input_str.split()
+        if len(arr) != 3:
+            raise Exception("Неверный ввод" )
         num1 = int(arr[0])
         num2 = int(arr[2])
 
@@ -11,18 +13,17 @@ def main(str):
             raise Exception("Второе число не верно")
         if (arr[1] != '+' and arr[1] != '-' and arr[1] != '*' and arr[1] != '/'):
             raise Exception("Неверный оператор")
-        if len(arr) != 3:
-            raise Exception("Неверный ввод" )
 
     except Exception as e:
-        return e
+        return str(e)
 
     else:
         if arr[1] == "+":
+            return str(num1 + num2)
         elif arr[1] == "-":
-            return(num1 - num2)
+            return str(num1 - num2)
         elif arr[1] == "*":
-            return(num1 * num2)
+            return str(num1 * num2)
         elif arr[1] == "/":
-            return(int(num1 / num2))
-print(main(str))
+            return str(num1 // num2)
+print(main(input_str))
